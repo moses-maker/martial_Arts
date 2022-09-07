@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}" >
+</head>
+<body>
+    <div class="navbar-nav ms-auto">
+            {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'logoutaccount' %}">Logout ({{ user.username }})</a>
+            {% else %}
+                <a class="nav-link" href="{% url 'loginaccount' %}">Login</a>
+                <a class="nav-link" href="{% url 'signupaccount' %}">Sign Up</a>
+            {% endif %}
+    </div>
+    <div class="container">
+        <h1 class="text-primary">MARTIAL ARTS CONTENT MANAGEMENT SYSTEM</h1>
+
+        {% block content %}
+
+
+        {% endblock content %}
+    </div>
+
+</body>
+</html>
